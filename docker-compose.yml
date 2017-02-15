@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  tetengo_data:
+    image: busybox
+    volumes:
+      - data-volume:/mnt/data
+
+  tetengo_base:
+    build:
+      context: tetengo_base
+    image: tetengo/base
+
+  bobura_build:
+    image: tetengo/base
+    depends_on:
+      - tetengo_data
+      - tetengo_base
+    volumes:
+      - data-volume:/mnt/data
+      - C:\data:/mnt/host_data
+    user: docker
+    working_dir: /home/docker
+    stdin_open: true
+    tty: true
+
+volumes:
+  data-volume:
