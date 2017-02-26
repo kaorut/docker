@@ -11,11 +11,18 @@ services:
       context: tetengo_base
     image: tetengo/base
 
+  tetengo_gcc:
+    build:
+      context: tetengo_gcc
+    image: tetengo/gcc
+    depends_on:
+      - tetengo_base
+
   bobura_build:
-    image: tetengo/base
+    image: tetengo/gcc
     depends_on:
       - tetengo_data
-      - tetengo_base
+      - tetengo_gcc
     volumes:
       - data-volume:/mnt/data
       - C:\data:/mnt/host_data
