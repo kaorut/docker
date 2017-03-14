@@ -18,11 +18,31 @@ services:
     depends_on:
       - tetengo_base
 
+  tetengo_clang:
+    build:
+      context: tetengo_clang
+    image: tetengo/clang
+    depends_on:
+      - tetengo_base
+
   bobura_build:
     image: tetengo/gcc
     depends_on:
       - tetengo_data
       - tetengo_gcc
+    volumes:
+      - data-volume:/mnt/data
+      - C:\data:/mnt/host_data
+    user: docker
+    working_dir: /home/docker
+    stdin_open: true
+    tty: true
+
+  bobura_build_clang:
+    image: tetengo/clang
+    depends_on:
+      - tetengo_data
+      - tetengo_clang
     volumes:
       - data-volume:/mnt/data
       - C:\data:/mnt/host_data
