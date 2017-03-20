@@ -16,6 +16,7 @@ RUN \
 RUN \
   apt-get -y install \
     bzip2 \
+    curl \
     emacs \
     git \
     less \
