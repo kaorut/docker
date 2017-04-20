@@ -19,16 +19,16 @@ RUN \
     libbz2-dev \
     libpython-dev
 
-ARG BOOST_VER=1_63_0
-ARG BOOST_VER_DOT=1.63.0
+ARG BOOST_VER=1_64_0
+ARG BOOST_VER_DOT=1.64.0
 WORKDIR /root
 RUN \
-  wget https://downloads.sourceforge.net/project/boost/boost/${BOOST_VER_DOT}/boost_${BOOST_VER}.tar.bz2 && \
+  wget https://dl.bintray.com/boostorg/release/${BOOST_VER_DOT}/source/boost_${BOOST_VER}.tar.bz2 && \
   tar axvf boost_${BOOST_VER}.tar.bz2
 WORKDIR /root/boost_${BOOST_VER}
 RUN \
   ./bootstrap.sh --with-toolset=clang && \
-  ./b2 -j8 toolset=clang link=static cxxflags="-std=gnu++11" install --prefix=/usr/local
+  (./b2 -j8 toolset=clang link=static cxxflags="-std=gnu++11" install --prefix=/usr/local || :)
 
 #------------------------------------------------------------------------------
 
