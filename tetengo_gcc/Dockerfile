@@ -10,7 +10,7 @@ LABEL maintainer kaoru http://twitter.com/kaorut
 RUN \
   apt-get -y install \
     g++ \
-    g++-4.9
+    g++-6
 
 #------------------------------------------------------------------------------
 

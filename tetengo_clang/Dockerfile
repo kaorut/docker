@@ -10,7 +10,7 @@ LABEL maintainer kaoru http://twitter.com/kaorut
 RUN \
   apt-get -y install \
     clang \
-    clang-3.5
+    clang-3.9
 
 #------------------------------------------------------------------------------
 

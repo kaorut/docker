@@ -1,7 +1,7 @@
 # Dockerfile for tetengo/base
 # Copyright (C) 2017 kaoru
 
-FROM debian:jessie
+FROM debian:stretch
 
 LABEL maintainer kaoru http://twitter.com/kaorut
 
