@@ -10,7 +10,8 @@ LABEL maintainer kaoru http://twitter.com/kaorut
 RUN \
   apt-get -y install \
     clang \
-    clang-3.9
+    clang-3.9 \
+    iwyu
 
 #------------------------------------------------------------------------------
 
@@ -19,8 +20,8 @@ RUN \
     libbz2-dev \
     libpython-dev
 
-ARG BOOST_VER=1_64_0
-ARG BOOST_VER_DOT=1.64.0
+ARG BOOST_VER=1_65_1
+ARG BOOST_VER_DOT=1.65.1
 WORKDIR /root
 RUN \
   wget https://dl.bintray.com/boostorg/release/${BOOST_VER_DOT}/source/boost_${BOOST_VER}.tar.bz2 && \
@@ -29,6 +30,24 @@ WORKDIR /root/boost_${BOOST_VER}
 RUN \
   ./bootstrap.sh --with-toolset=clang && \
   (./b2 -j8 toolset=clang link=static cxxflags="-std=gnu++11" install --prefix=/usr/local || :)
+
+#------------------------------------------------------------------------------
+
+RUN \
+  apt-get -y install \
+    cmake \
+    graphviz
+
+ARG DOXYGEN_VER=1.8.13
+WORKDIR /root
+RUN \
+  wget http://ftp.stack.nl/pub/users/dimitri/doxygen-${DOXYGEN_VER}.src.tar.gz && \
+  tar axvf doxygen-${DOXYGEN_VER}.src.tar.gz && \
+  mkdir /root/doxygen-${DOXYGEN_VER}/build
+WORKDIR /root/doxygen-${DOXYGEN_VER}/build
+RUN \
+  cmake -G "Unix Makefiles" .. && \
+  make -j8 install
 
 #------------------------------------------------------------------------------
 
