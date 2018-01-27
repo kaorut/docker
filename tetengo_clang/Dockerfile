@@ -20,8 +20,8 @@ RUN \
     libbz2-dev \
     libpython-dev
 
-ARG BOOST_VER=1_65_1
-ARG BOOST_VER_DOT=1.65.1
+ARG BOOST_VER=1_66_0
+ARG BOOST_VER_DOT=1.66.0
 WORKDIR /root
 RUN \
   wget https://dl.bintray.com/boostorg/release/${BOOST_VER_DOT}/source/boost_${BOOST_VER}.tar.bz2 && \
