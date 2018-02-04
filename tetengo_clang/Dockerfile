@@ -38,7 +38,7 @@ RUN \
     cmake \
     graphviz
 
-ARG DOXYGEN_VER=1.8.13
+ARG DOXYGEN_VER=1.8.14
 WORKDIR /root
 RUN \
   wget http://ftp.stack.nl/pub/users/dimitri/doxygen-${DOXYGEN_VER}.src.tar.gz && \
