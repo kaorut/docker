@@ -40,6 +40,7 @@ RUN \
     autoconf-archive \
     automake \
     bison \
+    clang-3.9 \
     clang-format-5.0 \
     ctags \
     flex \
