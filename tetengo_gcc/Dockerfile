@@ -1,5 +1,5 @@
 # Dockerfile for tetengo/gcc
-# Copyright (C) 2017 kaoru
+# Copyright (C) 2017-2019 kaoru
 
 FROM tetengo/base
 
