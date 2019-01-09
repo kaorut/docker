@@ -8,6 +8,7 @@ LABEL maintainer kaoru http://twitter.com/kaorut
 #------------------------------------------------------------------------------
 
 RUN \
+  apt-get -y update && \
   apt-get -y install \
     clang \
     clang-5.0
@@ -15,6 +16,7 @@ RUN \
 #------------------------------------------------------------------------------
 
 RUN \
+  apt-get -y update && \
   apt-get -y install \
     libbz2-dev \
     libpython-dev

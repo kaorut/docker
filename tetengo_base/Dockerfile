@@ -17,6 +17,7 @@ RUN \
 #------------------------------------------------------------------------------
 
 RUN \
+  apt-get -y update && \
   apt-get -y install \
     bzip2 \
     curl \
@@ -35,6 +36,7 @@ RUN \
 #------------------------------------------------------------------------------
 
 RUN \
+  apt-get -y update && \
   apt-get -y install \
     autoconf \
     autoconf-archive \
@@ -52,14 +54,15 @@ RUN \
 #------------------------------------------------------------------------------
 
 RUN \
+  apt-get -y update && \
   apt-get -y install \
     cmake \
     graphviz
 
-ARG DOXYGEN_VER=1.8.14
+ARG DOXYGEN_VER=1.8.15
 WORKDIR /root
 RUN \
-  wget http://ftp.stack.nl/pub/users/dimitri/doxygen-${DOXYGEN_VER}.src.tar.gz && \
+  wget http://doxygen.nl/files/doxygen-${DOXYGEN_VER}.src.tar.gz && \
   tar axvf doxygen-${DOXYGEN_VER}.src.tar.gz && \
   mkdir /root/doxygen-${DOXYGEN_VER}/build
 WORKDIR /root/doxygen-${DOXYGEN_VER}/build
