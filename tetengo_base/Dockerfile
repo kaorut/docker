@@ -1,14 +1,14 @@
 # Dockerfile for tetengo/base
 # Copyright (C) 2017-2019 kaoru
 
-FROM debian:stretch
+FROM debian:buster
 
 LABEL maintainer kaoru http://twitter.com/kaorut
 
 #------------------------------------------------------------------------------
 
 RUN \
-  echo "deb http://ftp.jp.debian.org/debian/ stretch-backports main" >> /etc/apt/sources.list
+  echo "deb http://ftp.jp.debian.org/debian/ buster-backports main" >> /etc/apt/sources.list
 
 RUN \
   apt-get -y update && \
@@ -42,8 +42,8 @@ RUN \
     autoconf-archive \
     automake \
     bison \
-    clang-3.9 \
-    clang-format-5.0 \
+    clang-7 \
+    clang-format-7 \
     ctags \
     flex \
     g++ \
