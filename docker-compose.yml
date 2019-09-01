@@ -25,7 +25,7 @@ services:
     depends_on:
       - tetengo_base
 
-  bobura_build:
+  devenv_tetengo2_gcc:
     image: tetengo/gcc
     depends_on:
       - tetengo_data
@@ -38,7 +38,7 @@ services:
     stdin_open: true
     tty: true
 
-  bobura_build_clang:
+  devenv_tetengo2_clang:
     image: tetengo/clang
     depends_on:
       - tetengo_data
