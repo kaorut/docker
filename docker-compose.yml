@@ -25,7 +25,7 @@ services:
     depends_on:
       - tetengo_base
 
-  devenv_tetengo2_gcc:
+  devenv_tetengo_gcc:
     image: tetengo/gcc
     depends_on:
       - tetengo_data
@@ -38,7 +38,7 @@ services:
     stdin_open: true
     tty: true
 
-  devenv_tetengo2_clang:
+  devenv_tetengo_clang:
     image: tetengo/clang
     depends_on:
       - tetengo_data
