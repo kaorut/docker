@@ -42,13 +42,16 @@ RUN \
     autoconf-archive \
     automake \
     bison \
+    clang \
     clang-7 \
+    clang-format \
     clang-format-7 \
     ctags \
     flex \
     g++ \
     gdb \
     iwyu \
+    libtool \
     make
 
 #------------------------------------------------------------------------------
